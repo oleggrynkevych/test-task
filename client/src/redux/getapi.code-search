@@ -1,0 +1,22 @@
+# Query: getapi
+# ContextLines: 1
+
+4 results - 2 files
+
+src/components/ProductList/ProductList.js:
+   3  import { productSelector } from "../../redux/reducers";
+   4: import { getApiProducts } from "../../redux/actions";
+   5  import { useEffect } from "react";
+
+  13      useEffect(() => {
+  14: 		dispatch(getApiProducts());
+  15  	}, []);
+
+src/redux/actions.js:
+  23  
+  24: export const getApiProducts = () => {
+  25  	return (dispatch) => {
+
+  31      return (dispatch) => {
+  32:         axios.delete(`http://localhost:4004/product/${id}`).then(() => dispatch(getApiProducts()));
+  33      }
